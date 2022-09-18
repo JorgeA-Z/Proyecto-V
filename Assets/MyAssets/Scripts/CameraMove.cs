@@ -62,6 +62,7 @@ public class CameraMove : MonoBehaviour
         #region rotacion camara
         CamRotX += Input.GetAxis("Mouse X") * CameraVelocity;
         CamRotY += Input.GetAxis("Mouse Y") * CameraVelocity;
+        CamRotY = Mathf.Clamp(CamRotY, -45f, 90f);
         FocusPoint.localRotation = Quaternion.Euler(CamRotY, 0, 0);
 
         Player.localRotation = Quaternion.Euler(0, CamRotX, 0);
